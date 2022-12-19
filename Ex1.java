@@ -7,9 +7,9 @@ public class Ex1 {
         Scanner sc = new Scanner(System.in);
         System.out.println("Hello, World!");
         ArrayList<String> numeros = new ArrayList<String>();
-        
+
         // Iniciando o vetor
-        int[] vetor = { 1, 1, 2, 1, 3, 3, 3, 3, 3, 4, 1, 1, 1, 2, 2, 2, 3, 4, 4, 4 }; 1 -6 3-6
+        int[] vetor = { 1, 1, 2, 1, 3, 3, 3, 3, 3, 4, 1, 1, 1, 2, 2, 2, 3, 4, 4, 4 };
 
         // Imprimindo mensagem
         System.out.println("Frequencia dos numeros \n");
@@ -25,14 +25,15 @@ public class Ex1 {
         // ja declaramos ai em cima
         for (int i = 1; i < vetor.length; i++) {
             if (numeroAtual == vetor[i]) { // Se o numero atual for igual a posicao atual, incrementamos a contagem
-                
+
                 contador++;
-            } 
-            // else { // Se nao, imprimimos a contagem total e atualizamos o numero atual e o contador
-            //     System.out.print("[" + numeroAtual + "," + contador + "], ");
-            //     numeros.add("[" + numeroAtual + "," + contador + "], ")
-            //     numeroAtual = vetor[i];
-            //     contador = 1;
+            }
+            // else { // Se nao, imprimimos a contagem total e atualizamos o numero atual e
+            // o contador
+            // System.out.print("[" + numeroAtual + "," + contador + "], ");
+            // numeros.add("[" + numeroAtual + "," + contador + "], ")
+            // numeroAtual = vetor[i];
+            // contador = 1;
             // }
         }
     }
