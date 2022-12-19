@@ -1,0 +1,1 @@
+os a contagem total e atualizamos o numero atual e o contador
