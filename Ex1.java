@@ -1,40 +1,69 @@
-import java.util.Scanner;
+import java.util.*;
 import java.util.ArrayList;
 
 public class Ex1 {
+    public int numero;
+    public int frequencia;
+
+    public Ex1(int numero, int frequencia) {
+        this.numero = numero;
+        this.frequencia = frequencia;
+    }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Hello, World!");
-        ArrayList<String> numeros = new ArrayList<String>();
-
-        // Iniciando o vetor
-        int[] vetor = { 1, 1, 2, 1, 3, 3, 3, 3, 3, 4, 1, 1, 1, 2, 2, 2, 3, 4, 4, 4 };
-
-        // Imprimindo mensagem
-        System.out.println("Frequencia dos numeros \n");
-        System.out.print("> [");
-
-        // Variaveis de contador e numero atual ja considerando a primeira posicao do
-        // vetor
-        int contador = 1;
-        int numeroAtual = vetor[0];
-
-        // Atencao que o for comeca da segunda posicao do vetor (indice 1), pois o
-        // primeiro
-        // ja declaramos ai em cima
-        for (int i = 1; i < vetor.length; i++) {
-            if (numeroAtual == vetor[i]) { // Se o numero atual for igual a posicao atual, incrementamos a contagem
-
-                contador++;
-            }
-            // else { // Se nao, imprimimos a contagem total e atualizamos o numero atual e
-            // o contador
-            // System.out.print("[" + numeroAtual + "," + contador + "], ");
-            // numeros.add("[" + numeroAtual + "," + contador + "], ")
-            // numeroAtual = vetor[i];
-            // contador = 1;
-            // }
+        Scanner entrada = new Scanner(System.in);
+        ArrayList<Integer> numeros1 = new ArrayList<Integer>();
+        boolean resp = false;
+        int numeros, x = 0;
+        int vetor[] = new int[10];
+        int repetidos[] = new int[10];
+        int repetidos1[][] = new int[10][10];
+        System.out.println("\n ---->>> Cadastre 10 numeros <<<---- ");
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Numero " + (i + 1) + ": ");
+            numeros = entrada.nextInt();
+            vetor[i] = numeros;
         }
+
+        System.out.println(" ");
+        // ordenar vetor
+        while (!resp) {
+            resp = true;
+            for (int i = 0; i < vetor.length - 1; i++) {
+                if (vetor[i] > vetor[i + 1]) {
+                    resp = false;
+                    x = vetor[i + 1];
+                    vetor[i + 1] = vetor[i];
+                    vetor[i] = x;
+                }
+            }
+        }
+
+        // frequencia dos numeros
+        System.out.print("\n Frequencia dos numeros \n");
+        int cont = 1;
+        int num = 0;
+        for (int i = 0; i < vetor.length; i++) {
+            cont = 0;
+            for (int j = 0; j < vetor.length; j++) {
+                if (vetor[j] == vetor[i]) {
+                    cont++;
+                    repetidos[i] = cont;
+                }
+                num = vetor[i];
+            }
+        }
+        Ex1[] ex1 = new Ex1[10];
+        // mostra somente os repetidos
+        System.out.println(vetor[0] + " --> " + repetidos[0] + "x.");
+        for (int i = 0; i < 9; i++) {
+            if (vetor[i] != vetor[i + 1])
+                System.out.println(vetor[i + 1] + " --> " + repetidos[i + 1] + "x.");
+            ex1[i] = new Ex1(vetor[i + 1], repetidos[i + 1]);
+        }
+        System.out.println(numeros1);
+        System.out.println("ex:" + ex1[0].numero);
+
+        // [[1,5],[2,2],[3,2],[4,1]]
     }
 }
